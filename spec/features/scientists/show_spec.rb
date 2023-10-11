@@ -66,7 +66,7 @@ RSpec.describe '/scientists/:id', type: :feature do
       visit "/scientists/#{@curie.id}"
       expect(page).to have_content("#{@exp_curie_1.name}")
       expect(page).to have_content("#{@exp_curie_2.name}")
-
+      
       within("#experiment-#{@exp_curie_1.id}") do
         click_button("Remove")
       end
