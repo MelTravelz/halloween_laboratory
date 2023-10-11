@@ -3,6 +3,6 @@
 <h3>Current Scientists & Total Experiments:</h3>
 <% @lab.scientists.each do |scientist| %>
   <ul>
-    <li><%= scientist.name %>: <%= scientist.experiments.size %></li>
+    <li><%= scientist.name %>: <%= scientist.find_total_experiments %></li>
   </ul>
 <% end %>
