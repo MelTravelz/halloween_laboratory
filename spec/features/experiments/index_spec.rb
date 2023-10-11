@@ -32,12 +32,11 @@ RSpec.describe "/experiments", type: :feature do
       visit "/experiments"
 
       expect(page).to have_content("Long-Running Experiments:")
-      expect(page).to have_content("#{@exp_1.name}")
-      expect(page).to have_content("#{@exp_5.name}")
+      expect(page).to have_content("#{@exp_2.name}: #{@exp_2.num_months} months")
+      expect(page).to have_content("#{@exp_3.name}: #{@exp_3.num_months} months")
+      expect(page).to have_content("#{@exp_5.name}: #{@exp_5.num_months} months")
 
-      expect(page).to_not have_content("#{@exp_2.name}")
-      expect(page).to_not have_content("#{@exp_3.name}")
-      expect(page).to_not have_content("#{@exp_4.name}")
+      expect(page).to_not have_content("#{@exp_1.name}")
     end
   end
 
