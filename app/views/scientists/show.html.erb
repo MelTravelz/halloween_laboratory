@@ -2,3 +2,13 @@
 <p>Specialty: <%= @scientist.specialty %></p>
 <p>University: <%= @scientist.university %></p>
 <p>Current Lab: <%= @scientist.lab.name %></p>
+
+<h3>Experiments:</h3>
+  <ul>
+    <% @scientist.experiments.each do |experiment| %>
+      <li><%= experiment.name %></li>
+      <br>
+    <% end %>
+  </ul>
+
+

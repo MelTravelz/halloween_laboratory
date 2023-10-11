@@ -33,14 +33,19 @@ RSpec.describe '/scientists/:id', type: :feature do
       expect(page).to_not have_content("Name: #{@franky.name}")
     end
 
-    it "displays the name of the lab where this scientist workds" do
+    it "displays the name of the lab where this scientist works" do
       art_lab = Lab.create!(name: "Art Lab")
-
       visit "/scientists/#{@curie.id}"
 
       expect(page).to have_content("Current Lab: #{@curie.lab.name}")
-
       expect(page).to_not have_content("Current Lab: Art Lab")
+    end
+
+    it "displays the names of all the experiments fo this scientist" do
+      visit "/scientists/#{@curie.id}"
+
+      expect(page).to have_content("Experiments:\n#{@exp_curie_1.name} #{@exp_curie_2.name}")
+      expect(page).to_not have_content("Experiments: #{@exp_franky_3.name}")
     end
   end
 end
