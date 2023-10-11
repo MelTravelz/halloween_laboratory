@@ -33,5 +33,15 @@ RSpec.describe '/labs/:id', type: :feature do
 
       expect(page).to have_content(@nuclear.name)
     end
+
+    it "displays the names of all scientists that work at that lab" do
+      visit "/labs/#{@nuclear.id}"
+
+      expect(page).to have_content("Current Scientists:")
+      expect(page).to have_content(@curie.name)
+      expect(page).to have_content(@franky.name)
+
+      expect(page).to_not have_content(@jekyll.name)
+    end
   end
 end

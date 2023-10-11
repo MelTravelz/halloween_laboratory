@@ -1,1 +1,8 @@
 <h1><%= @lab.name %></h1>
+
+<h3>Current Scientists:</h3>
+<% @lab.scientists.each do |scientist| %>
+  <ul>
+    <li><%= scientist.name %></li>
+  </ul>
+<% end %>
