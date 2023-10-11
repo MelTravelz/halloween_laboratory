@@ -6,4 +6,8 @@ class Scientist < ApplicationRecord
   validates :name, presence: true
   validates :specialty, presence: true
   validates :university, presence: true
+
+  def find_total_experiments
+    experiments.size
+  end
 end
