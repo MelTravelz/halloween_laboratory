@@ -11,16 +11,18 @@ Halloween Laboratory is an app that allows a user to see labs, scientists, and e
 
 ## Database information
 
-- Labs have a name
-    - Ex: name: “Fermilab”
-- Scientists have a name, specialty, and university attended
-    - Ex: name: “Marie Curie”, specialty: “radioactivity”, university: “University of Paris”
-- Experiments have a name, objective (description), and a num_months attribute which represents the duration of the experiment
-    - Ex: name: “MINERvA”, objective: “study neutrino reactions with five different nuclei”, num_months: 4
-- Labs have many scientists
-- Scientists belong to a lab
-- Scientists have many experiments
-- Experiments can have many scientists
+[x] Labs have a name
+    [x] Ex: name: “Fermilab”
+[x] Scientists have a name, specialty, and university attended
+    [x] Ex: name: “Marie Curie”, specialty: “radioactivity”, university: “University of Paris”
+[x] Experiments have a name, objective (description), and a num_months attribute which represents the duration of the experiment
+    [x] Ex: name: “MINERvA”, objective: “study neutrino reactions with five different nuclei”, num_months: 4
+[x] Labs have many scientists
+[x] Scientists belong to a lab
+[x] Scientists have many experiments
+[x] Experiments can have many scientists
+[x] NOTE: these last two are a many-to-many relationship and so a scientist_experiments table was created
+[x] NOTE: added validations & tests
 
 ## User Stories
 
