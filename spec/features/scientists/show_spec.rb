@@ -13,7 +13,7 @@ RSpec.describe '/scientists/:id', type: :feature do
     @exp_2 = Experiment.create!(name: "My hand hurts", objective: "understand why", num_months: 4)
     @exp_3 = Experiment.create!(name: "Monster", objective: "electic-life", num_months: 5)
     @exp_4 = Experiment.create!(name: "Reduced Sleep", objective: "who am I?", num_months: 2)
-    @exp_5 = Experiment.create!(name: "More Reduced Sleep", objective: "who am I now?", num_months: 3)
+    @exp_5 = Experiment.create!(name: "More Reduced Sleep", objective: "who am I now?", num_months: 10)
 
     ScientistExperiment.create!(scientist: @curie, experiment: @exp_1)
     ScientistExperiment.create!(scientist: @curie, experiment: @exp_2)
