@@ -1,4 +1,4 @@
-# Halloween Laboratory
+# Science Laboratory
 
 The aim of this respository is to practice the basic fundamentals of the MVC software architectural pattern.
 
@@ -7,7 +7,7 @@ It's based off of a practice respository from the Turing School of Software & De
 
 ## Description
 
-Halloween Laboratory is an app that allows a user to see labs, scientists, and experiments. 
+Science Laboratory is an app that allows a user to see labs, scientists, and experiments. 
 
 ## Database information
 
