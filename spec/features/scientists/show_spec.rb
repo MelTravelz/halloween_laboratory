@@ -17,7 +17,11 @@ RSpec.describe '/scientists/:id', type: :feature do
 
     ScientistExperiment.create!(scientist: @curie, experiment: @exp_curie_1)
     ScientistExperiment.create!(scientist: @curie, experiment: @exp_curie_2)
+
+    ScientistExperiment.create!(scientist: @franky, experiment: @exp_curie_1)
     ScientistExperiment.create!(scientist: @franky, experiment: @exp_franky_3)
+
+    ScientistExperiment.create!(scientist: @jekyll, experiment: @exp_curie_1)
     ScientistExperiment.create!(scientist: @jekyll, experiment: @exp_jekyll_4)
     ScientistExperiment.create!(scientist: @jekyll, experiment: @exp_jekyll_5)
   end
@@ -41,7 +45,7 @@ RSpec.describe '/scientists/:id', type: :feature do
       expect(page).to_not have_content("Current Lab: Art Lab")
     end
 
-    it "displays the names of all the experiments fo this scientist" do
+    it "displays the names of all the experiments for this scientist" do
       visit "/scientists/#{@curie.id}"
 
       expect(page).to have_content("Experiments:")
@@ -74,6 +78,20 @@ RSpec.describe '/scientists/:id', type: :feature do
       expect(page).to have_current_path("/scientists/#{@curie.id}")
       expect(page).to have_content("#{@exp_curie_2.name}")
       expect(page).to_not have_content("#{@exp_curie_1.name}")
+    end
+
+    it "when I click the Remove button it does not impact other scientists working on that experiment" do
+      visit "/scientists/#{@curie.id}"
+      
+      within("#experiment-#{@exp_curie_1.id}") do
+        click_button("Remove")
+      end
+
+      visit "/scientists/#{@franky.id}"
+      expect(page).to have_content("#{@exp_curie_1.name}")
+
+      visit "/scientists/#{@jekyll.id}"
+      expect(page).to have_content("#{@exp_curie_1.name}")
     end
   end
 end
