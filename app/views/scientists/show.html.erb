@@ -6,8 +6,12 @@
 <h3>Experiments:</h3>
   <ul>
     <% @scientist.experiments.each do |experiment| %>
-      <li><%= experiment.name %></li>
-      <br>
+      <section id="experiment-<%= experiment.id %>">
+        <li>
+          <%= experiment.name %>
+          <%= button_to "Remove", "/scientists/#{@scientist.id}", method: :delete, params: { experiment_id: experiment.id } %>
+        </li>
+      </section><br>
     <% end %>
   </ul>
 

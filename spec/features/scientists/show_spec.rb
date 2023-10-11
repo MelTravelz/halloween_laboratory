@@ -47,5 +47,19 @@ RSpec.describe '/scientists/:id', type: :feature do
       expect(page).to have_content("Experiments:\n#{@exp_curie_1.name} #{@exp_curie_2.name}")
       expect(page).to_not have_content("Experiments: #{@exp_franky_3.name}")
     end
+
+    it "displays a button to remove each experiement" do
+      visit "/scientists/#{@curie.id}"
+
+      within("#experiment-#{@exp_curie_1.id}") do
+        expect(page).to have_button("Remove")
+      end
+
+      within("#experiment-#{@exp_curie_2.id}") do
+        expect(page).to have_button("Remove")
+      end
+    end
+
+
   end
 end
