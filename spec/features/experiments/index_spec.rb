@@ -10,8 +10,8 @@ RSpec.describe "/experiments", type: :feature do
     @jekyll = Scientist.create!(lab: @electric, name: "Dr. Jekyll or Mr. Hyde", specialty: "sleep deprivation", university: "University of London")
 
     @exp_1 = Experiment.create!(name: "Radio-waves", objective: "understand them", num_months: 6)
-    @exp_2 = Experiment.create!(name: "My hand hurts", objective: "understand why", num_months: 4)
-    @exp_3 = Experiment.create!(name: "Monster", objective: "electic-life", num_months: 5)
+    @exp_2 = Experiment.create!(name: "My hand hurts", objective: "understand why", num_months: 14)
+    @exp_3 = Experiment.create!(name: "Monster", objective: "electic-life", num_months: 7)
     @exp_4 = Experiment.create!(name: "Reduced Sleep", objective: "who am I?", num_months: 2)
     @exp_5 = Experiment.create!(name: "More Reduced Sleep", objective: "who am I now?", num_months: 10)
 
