@@ -7,8 +7,7 @@ class Experiment < ApplicationRecord
   validates :num_months, presence: true
 
   def self.find_long_experiments
-    self
-      .where("num_months >6")
+    where("num_months > ?", 6).order(num_months: :desc)
   end
 
 end
