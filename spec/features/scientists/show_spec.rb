@@ -44,7 +44,9 @@ RSpec.describe '/scientists/:id', type: :feature do
     it "displays the names of all the experiments fo this scientist" do
       visit "/scientists/#{@curie.id}"
 
-      expect(page).to have_content("Experiments:\n#{@exp_curie_1.name} #{@exp_curie_2.name}")
+      expect(page).to have_content("Experiments:")
+      expect(page).to have_content("#{@exp_curie_1.name}")
+      expect(page).to have_content("#{@exp_curie_2.name}")
       expect(page).to_not have_content("Experiments: #{@exp_franky_3.name}")
     end
 
@@ -60,6 +62,18 @@ RSpec.describe '/scientists/:id', type: :feature do
       end
     end
 
+    it "when I click the Remove button it deletes that experiment and returns to scientist's show page" do
+      visit "/scientists/#{@curie.id}"
+      expect(page).to have_content("#{@exp_curie_1.name}")
+      expect(page).to have_content("#{@exp_curie_2.name}")
 
+      within("#experiment-#{@exp_curie_1.id}") do
+        click_button("Remove")
+      end
+
+      expect(page).to have_current_path("/scientists/#{@curie.id}")
+      expect(page).to have_content("#{@exp_curie_2.name}")
+      expect(page).to_not have_content("#{@exp_curie_1.name}")
+    end
   end
 end
