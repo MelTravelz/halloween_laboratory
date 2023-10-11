@@ -1,8 +1,16 @@
 <h1><%= @lab.name %></h1>
 
 <h3>Current Scientists & Total Experiments:</h3>
+<% @lab.find_scientists_by_experiment_total.each do |scientist| %>
+<ul>
+    <li><%= scientist.name %>: <%= scientist.experiment_count %></li> 
+    <!-- NOTE: .experiment_count is a temporary method, see lab.rb -->
+  </ul>
+<% end %>
+
+<!-- ORIGINAL METHOD: 
 <% @lab.scientists.each do |scientist| %>
   <ul>
     <li><%= scientist.name %>: <%= scientist.find_total_experiments %></li>
   </ul>
-<% end %>
+<% end %> -->

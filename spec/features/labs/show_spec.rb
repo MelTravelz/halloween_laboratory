@@ -60,5 +60,12 @@ RSpec.describe '/labs/:id', type: :feature do
       expect(page).to have_content("#{@franky.name}: 3")
       expect(page).to have_content("#{@oppie.name}: 4")
     end
+
+    it "displays scientists by order of most to least experiments" do
+      visit "/labs/#{@nuclear.id}"
+
+      expect(@oppie.name).to appear_before(@franky.name)
+      expect(@franky.name).to appear_before(@curie.name)
+    end
   end
 end
