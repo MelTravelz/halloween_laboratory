@@ -21,4 +21,16 @@ RSpec.describe '/scientists/:id', type: :feature do
     ScientistExperiment.create!(scientist: @jekyll, experiment: @exp_jekyll_4)
     ScientistExperiment.create!(scientist: @jekyll, experiment: @exp_jekyll_5)
   end
+
+  describe "as a user, when I visit a scientist's show page" do
+    it "displays that scientist's name, speciality, and university" do
+      visit "/scientists/#{@curie.id}"
+
+      expect(page).to have_content("Name: #{@curie.name}")
+      expect(page).to have_content("Specialty: #{@curie.specialty}")
+      expect(page).to have_content("University: #{@curie.university}")
+
+      expect(page).to_not have_content("Name: #{@franky.name}")
+    end
+  end
 end
